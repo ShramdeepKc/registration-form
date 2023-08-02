@@ -1,0 +1,107 @@
+<odoo>
+    <data>
+        <!-- Form View -->
+        <record model="ir.ui.view" id="view_custom_person_form">
+            <field name="name">Persons</field>
+            <field name="model">custom.person</field>
+            <field name="arch" type="xml">
+                <form string="Person">
+                    <header>
+                         <button name="action_send_mail" string="Send Email" class="oe_highlight"
+                          data-hotkey="m" type="object"/>
+                    </header>
+                  <sheet>
+                        <div style="width: 100%; position: relative;">
+                            <div style="float: right;">
+                                <field name="photo" widget="image" class="oe_avatar" options='{"preview_image": "image_medium"}'/>
+                            </div>
+                        </div>
+                    <group>
+                        <group>
+                        <field name="name"/>
+                        </group>
+                        <group>
+                        <field name="birth_date"/>
+                        <field name="citizenship_number"/>
+                        </group>
+                        <group>
+                        <field name="voter_id"/>
+                        <field name="mobile_no"/>
+                        <field name="email"/>
+                        </group>
+                        <group>
+                        <field name="permanent_address"/>
+                        <field name="district"/>
+                        </group>
+                        <group>
+                             <field name="parliamentary_constituency_number"/>
+                        <field name="state_election_constituency_number"/>
+                        <field name="municipality"/>
+                        <field name="rural_municipality"/>
+                        <field name="temporary_address"/>
+                        </group>
+                        <group>
+                        <field name="father_name"/>
+                        <field name="mother_name"/>
+                        <field name="husband_name"/>
+                        <field name="wife_name"/>
+                        <field name="family_number"/>
+                        </group>
+                        <group>
+                        <field name="educational_qualification_certificate"/>
+                        <field name="is_12th_grade_completed"/>
+                        <field name="has_bachelors_degree"/>
+                        <field name="is_postgraduate"/>
+                        </group>
+                        <group>
+                            <field name="has_phd"/>
+                        <field name="is_others"/>
+                        <field name="religion"/>
+                        <field name="marital_status"/>
+                        <field name="ethnic_group"/>
+                        </group>
+                        <group>
+                        <field name="year_of_continuous_residence"/>
+                        <field name="date_of_previous_membership"/>
+                        <field name="membership_number"/>
+                        </group>
+                        <group>
+                        <field name="past_responsibilities"/>
+                        <field name="organization_name"/>
+                        <field name="position"/>
+                        <field name="years_of_experience"/>
+                        </group>
+                        <group>
+                        <field name="signature"/>
+                        <field name="recommending_member_name"/>
+                        <field name="contact_number"/>
+                        </group>
+                        <group>
+                        <field name="applicant_signature"/>
+                        <field name="date_field"/>
+                        </group>
+                        <field name="membership_period"/>
+<!--                        <field name="photo"/>-->
+                    </group>
+
+                  </sheet>
+
+                </form>
+            </field>
+        </record>
+
+        <!-- Action for Form View -->
+        <record model="ir.actions.act_window" id="action_custom_person_form">
+            <field name="name">Persons</field>
+            <field name="res_model">custom.person</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_custom_person_form"/>
+        </record>
+
+        <!-- Menu -->
+        <menuitem id="menu_custom_person" name="User" parent="menu_custom_module"/>
+        <menuitem id="menu_custom_person_list" name="Custom Person List" parent="menu_custom_person"
+            action="action_custom_person_form"/>
+    </data>
+</odoo>
+

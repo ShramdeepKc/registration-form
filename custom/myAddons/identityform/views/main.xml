@@ -1,0 +1,48 @@
+<odoo>
+    <data>
+        <!-- Top-level menu -->
+        <menuitem id="menu_custom_module" name="Registration Form" sequence="1"/>
+
+        <!-- Action to open the list view for the Person model -->
+        <record id="action_custom_person" model="ir.actions.act_window">
+            <field name="name">Persons</field>
+            <field name="res_model">custom.person</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record model="ir.ui.view" id="view_custom_person_tree">
+            <field name="name">custom.person.tree</field>
+            <field name="model">custom.person</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="birth_date" string="Date of Birth"/>
+                    <field name="citizenship_number" string="Citizenship number"/>
+                    <field name="voter_id" string="Voter ID"/>
+                    <field name="mobile_no" string="Mobile number"/>
+                    <field name="email"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_custom_person_form">
+            <field name="name">custom.person.form</field>
+            <field name="model">custom.person</field>
+            <field name="arch" type="xml">
+                <form>
+                    <field name="name"/>
+                    <field name="birth_date" string="Date of Birth"/>
+                    <field name="citizenship_number" string="Citizenship number"/>
+                    <field name="voter_id" string="Voter ID"/>
+                    <field name="mobile_no" string="Mobile number"/>
+                    <field name="email"/>
+                    <!-- Add other fields from the custom.person model here -->
+                </form>
+            </field>
+        </record>
+
+        <!-- Sub-menu -->
+        <menuitem id="menu_custom_person" name="User" parent="menu_custom_module" sequence="10" action="action_custom_person"/>
+
+    </data>
+</odoo>
